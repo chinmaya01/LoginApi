@@ -20,12 +20,12 @@ const app= express()
 
 
 
-app.listen(4200,()=>{
+app.listen(process.env.PORT|| 3000,()=>{
     console.log("Server Up and Running")
 })
 
 //connect to DB
 mongoose.connect(
-  process.env.DB_Connect,
+  "mongodb+srv://ganji:1234@cluster0.tzdn2.mongodb.net/test?retryWrites=true&w=majority"
   { useUnifiedTopology: true, useNewUrlParser: true },
 ).then(console.log("Connected to DB")).catch((err)=>console.log(err+"Occured"));
