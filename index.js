@@ -14,6 +14,15 @@ const app= express()
 
 
   app.use(express.json());
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 //Middleware
  app.use('/api/user',AuthRoutes)
  app.use('/api/posts',PrivateRoute)
@@ -34,11 +43,3 @@ app.get("*", function (req, res) {
   res.status(404).send("InValid Route.. ,Please check route and it's method");
 });
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
