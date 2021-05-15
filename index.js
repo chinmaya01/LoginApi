@@ -26,6 +26,6 @@ app.listen(process.env.PORT|| 3000,()=>{
 
 //connect to DB
 mongoose.connect(
-  "mongodb+srv://ganji:1234@cluster0.tzdn2.mongodb.net/test?retryWrites=true&w=majority"
+  "mongodb+srv://ganji:1234@cluster0.tzdn2.mongodb.net/test?retryWrites=true&w=majority",
   { useUnifiedTopology: true, useNewUrlParser: true },
 ).then(console.log("Connected to DB")).catch((err)=>console.log(err+"Occured"));
