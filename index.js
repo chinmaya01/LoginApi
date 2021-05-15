@@ -33,3 +33,12 @@ mongoose.connect(
 app.get("*", function (req, res) {
   res.status(404).send("InValid Route.. ,Please check route and it's method");
 });
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
